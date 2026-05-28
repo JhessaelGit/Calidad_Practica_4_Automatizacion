@@ -6,7 +6,15 @@ When('hago click en Logout') do
   find('#logout_sidebar_link').click
 end
 
+When('hago click en About') do
+  find('#about_sidebar_link').click
+end
+
 Then('deberia volver al login') do
   expect(page).to have_current_path('/', url: false)
   expect(page).to have_selector('#login-button')
+end
+
+Then('deberia redirigirme a la pagina de Sauce Labs') do
+  expect(page).to have_current_path(%r{https://saucelabs\.com/?}, url: true)
 end
