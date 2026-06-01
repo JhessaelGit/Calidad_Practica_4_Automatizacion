@@ -1,8 +1,14 @@
 require 'capybara/cucumber'
 require 'selenium-webdriver'
+begin
+  require 'webdrivers'
+rescue LoadError
+  # webdrivers gem is optional; make sure chromedriver is available in PATH or with CHROMEDRIVER_PATH
+end
 
 Capybara.register_driver :selenium_chrome_stable do |app|
   options = Selenium::WebDriver::Chrome::Options.new
+  options.binary = ENV['CHROME_BINARY_PATH'] || 'C:/Program Files/Google/Chrome/Application/chrome.exe'
 
   options.add_argument('--disable-gpu')
   options.add_argument('--disable-software-rasterizer')
@@ -10,10 +16,14 @@ Capybara.register_driver :selenium_chrome_stable do |app|
   options.add_argument('--no-sandbox')
   options.add_argument('--window-size=1920,1080')
 
+  service = Selenium::WebDriver::Service.chrome
+  service.path = ENV['CHROMEDRIVER_PATH'] if ENV['CHROMEDRIVER_PATH']
+
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    options: options
+    options: options,
+    service: service
   )
 end
 
