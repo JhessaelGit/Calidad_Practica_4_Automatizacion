@@ -12,7 +12,10 @@ Then('deberia ver el producto {string} en el carrito') do |producto_esperado|
 end
 
 Then('deberia ver la descripcion del producto en el carrito {string}') do |descripcion_esperada|
-  descripcion_actual = find('#cart_contents_container > div > div.cart_list > div.cart_item > div.cart_item_label > div.inventory_item_desc').text
+  descripcion_actual = find('#cart_contents_container > div 
+                              > div.cart_list > div.cart_item >
+                               div.cart_item_label > 
+                               div.inventory_item_desc').text
   expect(descripcion_actual).to eq(descripcion_esperada)
 end
 
