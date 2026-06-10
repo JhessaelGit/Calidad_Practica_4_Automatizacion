@@ -1,13 +1,13 @@
 When('abro el menu lateral') do
-  find('#react-burger-menu-btn').click
+  products_page.open_sidebar
 end
 
 When('hago click en Logout') do
-  find('#logout_sidebar_link').click
+  products_page.logout
 end
 
 When('hago click en About') do
-  find('#about_sidebar_link').click
+  products_page.go_to_about
 end
 
 Then('deberia volver al login') do

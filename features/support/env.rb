@@ -1,5 +1,8 @@
 require 'capybara/cucumber'
 require 'selenium-webdriver'
+require_relative '../pages/login_page'
+require_relative '../pages/products_page'
+
 begin
   require 'webdrivers'
 rescue LoadError
@@ -38,3 +41,15 @@ After do
   rescue StandardError
   end
 end
+
+module PageObjects
+  def login_page
+    @login_page ||= LoginPage.new
+  end
+
+  def products_page
+    @products_page ||= ProductsPage.new
+  end
+end
+
+World(PageObjects)
