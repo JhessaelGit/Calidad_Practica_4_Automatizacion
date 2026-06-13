@@ -19,6 +19,13 @@ Capybara.register_driver :selenium_chrome_stable do |app|
   options.add_argument('--disable-dev-shm-usage')
   options.add_argument('--no-sandbox')
   options.add_argument('--window-size=1920,1080')
+  options.add_argument('--password-store=basic')
+  options.add_argument('--disable-features=PasswordManagerOnboarding')
+  options.add_argument('--disable-features=AutofillServerCommunication')
+
+  options.add_preference('credentials_enable_service', false)
+  options.add_preference('profile.password_manager_enabled', false)
+  options.add_preference('profile.password_manager_leak_detection', false)
 
   service = Selenium::WebDriver::Service.chrome
   service.path = ENV['CHROMEDRIVER_PATH'] if ENV['CHROMEDRIVER_PATH']
