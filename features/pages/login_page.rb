@@ -24,6 +24,12 @@ class LoginPage < BasePage
     click_login
   end
 
+  def validate_login_form
+    expect(page).to have_selector('#login_button_container')
+    expect(page).to have_selector('#user-name')
+    expect(page).to have_selector('#password')
+  end
+
   def validate_login_success
     expect(page).to have_current_path('/inventory.html', url: false)
     expect(page).to have_content('Products')

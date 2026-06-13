@@ -3,6 +3,10 @@ require 'selenium-webdriver'
 require 'rspec/expectations'
 require_relative '../pages/login_page'
 require_relative '../pages/products_page'
+require_relative '../pages/cart_page'
+require_relative '../pages/checkout_page'
+require_relative '../pages/product_detail_page'
+require_relative '../pages/common_page'
 
 begin
   require 'webdrivers'
@@ -57,6 +61,22 @@ module PageObjects
 
   def products_page
     @products_page ||= ProductsPage.new
+  end
+
+  def cart_page
+    @cart_page ||= CartPage.new
+  end
+
+  def checkout_page
+    @checkout_page ||= CheckoutPage.new
+  end
+
+  def product_detail_page
+    @product_detail_page ||= ProductDetailPage.new
+  end
+
+  def common_page
+    @common_page ||= CommonPage.new
   end
 end
 

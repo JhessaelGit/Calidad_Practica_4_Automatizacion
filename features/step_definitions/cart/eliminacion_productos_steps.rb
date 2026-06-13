@@ -1,30 +1,21 @@
-# --- Steps para Eliminación de Productos ---
+# --- Steps para Eliminacion de Productos ---
 
 Given('que agrego el producto {string} al carrito') do |product_name|
-  visit 'https://www.saucedemo.com/inventory.html' unless current_url.include?('inventory.html')
-  within(".inventory_item", text: product_name) do
-    click_button 'Add to cart'
-  end
+  products_page.add_product_to_cart(product_name)
 end
 
 When('elimino el producto {string}') do |product_name|
-  within(".cart_item", text: product_name) do
-    click_button 'Remove'
-  end
+  cart_page.remove_product(product_name)
 end
 
 Then('el carrito deberia estar vacio') do
-  expect(page).to have_no_selector('.cart_item')
+  cart_page.validate_empty
 end
 
 Then('el boton del producto {string} en inventario deberia decir {string}') do |product_name, button_text|
-  within(".inventory_item", text: product_name) do
-    expect(page).to have_selector('button', text: button_text)
-  end
+  products_page.validate_product_button_text(product_name, button_text)
 end
 
 When('hago click en {string} para el producto {string} en inventario') do |button_text, product_name|
-  within(".inventory_item", text: product_name) do
-    click_button button_text
-  end
+  products_page.click_product_button(button_text, product_name)
 end
