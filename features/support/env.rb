@@ -1,5 +1,6 @@
 require 'capybara/cucumber'
 require 'selenium-webdriver'
+require 'rspec/expectations'
 require_relative '../pages/login_page'
 require_relative '../pages/products_page'
 
