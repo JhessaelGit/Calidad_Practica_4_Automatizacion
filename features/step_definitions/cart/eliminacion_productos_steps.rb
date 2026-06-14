@@ -2,15 +2,11 @@
 
 Given('que agrego el producto {string} al carrito') do |product_name|
   visit 'https://www.saucedemo.com/inventory.html' unless current_url.include?('inventory.html')
-  within(".inventory_item", text: product_name) do
-    click_button 'Add to cart'
-  end
+  products_page.add_product_to_cart(product_name)
 end
 
 When('elimino el producto {string}') do |product_name|
-  within(".cart_item", text: product_name) do
-    click_button 'Remove'
-  end
+  cart_page.remove_item(product_name)
 end
 
 Then('el carrito deberia estar vacio') do
@@ -18,13 +14,13 @@ Then('el carrito deberia estar vacio') do
 end
 
 Then('el boton del producto {string} en inventario deberia decir {string}') do |product_name, button_text|
-  within(".inventory_item", text: product_name) do
-    expect(page).to have_selector('button', text: button_text)
-  end
+  products_page.check_product_button_text(product_name, button_text)
 end
 
 When('hago click en {string} para el producto {string} en inventario') do |button_text, product_name|
-  within(".inventory_item", text: product_name) do
-    click_button button_text
+  if button_text == 'Remove'
+    products_page.remove_product_from_cart(product_name)
+  else
+    products_page.add_product_to_cart(product_name)
   end
 end

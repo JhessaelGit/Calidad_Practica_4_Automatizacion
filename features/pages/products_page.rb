@@ -19,6 +19,24 @@ class ProductsPage < BasePage
     expect(page).to have_selector("button[id^='add-to-cart']")
   end
 
+  def add_product_to_cart(product_name)
+    within(".inventory_item", text: product_name) do
+      click_button 'Add to cart'
+    end
+  end
+
+  def remove_product_from_cart(product_name)
+    within(".inventory_item", text: product_name) do
+      click_button 'Remove'
+    end
+  end
+
+  def check_product_button_text(product_name, text)
+    within(".inventory_item", text: product_name) do
+      expect(page).to have_button(text)
+    end
+  end
+
   # Menú Lateral (Sidebar)
   def open_sidebar
     find('#react-burger-menu-btn').click

@@ -2,6 +2,11 @@ require 'capybara/cucumber'
 require 'selenium-webdriver'
 require_relative '../pages/login_page'
 require_relative '../pages/products_page'
+require_relative '../pages/cart_page'
+require_relative '../pages/product_detail_page'
+require_relative '../pages/checkout_step_one_page'
+require_relative '../pages/checkout_step_two_page'
+require_relative '../pages/checkout_complete_page'
 
 begin
   require 'webdrivers'
@@ -49,6 +54,26 @@ module PageObjects
 
   def products_page
     @products_page ||= ProductsPage.new
+  end
+
+  def cart_page
+    @cart_page ||= CartPage.new
+  end
+
+  def product_detail_page
+    @product_detail_page ||= ProductDetailPage.new
+  end
+
+  def checkout_step_one_page
+    @checkout_step_one_page ||= CheckoutStepOnePage.new
+  end
+
+  def checkout_step_two_page
+    @checkout_step_two_page ||= CheckoutStepTwoPage.new
+  end
+
+  def checkout_complete_page
+    @checkout_complete_page ||= CheckoutCompletePage.new
   end
 end
 
