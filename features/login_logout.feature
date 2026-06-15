@@ -3,6 +3,7 @@ Feature: Login y Logout en Swag Labs
   Quiero iniciar y cerrar sesion
   Para validar el acceso seguro a la aplicacion
 
+  @smoke
   Scenario: Iniciar sesion y cerrar sesion correctamente
     Given que estoy en la pagina de login
     When ingreso el username "standard_user"

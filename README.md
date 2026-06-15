@@ -177,6 +177,12 @@ reports/cucumber_report.html
 
 El Smoke Test debe contener los escenarios minimos que validan que la aplicacion esta estable para continuar con pruebas mas amplias.
 
+La justificacion completa de criterios y escenarios seleccionados esta en:
+
+```text
+SMOKE_TEST.md
+```
+
 Criterios tecnicos para elegir los casos del Smoke Test:
 
 - **Criticidad:** flujos de negocio importantes o de alto riesgo.
@@ -184,18 +190,23 @@ Criterios tecnicos para elegir los casos del Smoke Test:
 - **Tedioso manualmente:** casos que requieren varios pasos repetitivos.
 - **Tiempo manual:** casos que consumen tiempo si se verifican manualmente.
 
-Escenarios candidatos para Smoke Test:
+Escenarios incluidos en el Smoke Test:
 
-- Login correcto.
-- Visualizacion de la lista de productos.
-- Agregar producto al carrito.
-- Verificar producto en carrito.
-- Completar checkout correctamente.
+- Iniciar sesion y cerrar sesion correctamente.
+- Verificar lista de productos disponibles.
+- Verificacion detallada de productos agregados al carrito.
+- Flujo completo de compra exitosa.
 
-Cuando los escenarios esten etiquetados con `@smoke`, se podran ejecutar con:
+Los escenarios estan etiquetados con `@smoke` y se ejecutan con:
 
 ```powershell
-cucumber --tags @smoke --publish-quiet
+cucumber --tags "@smoke" --publish-quiet
+```
+
+Para generar el reporte HTML del Smoke Test:
+
+```powershell
+cucumber --tags "@smoke" --format html --out reports/smoke_report.html --publish-quiet
 ```
 
 ## Hooks
@@ -220,8 +231,5 @@ Actualmente se utilizan para cerrar la sesion del navegador al finalizar cada es
 
 ## Mejoras pendientes sugeridas
 
-- Etiquetar escenarios `@smoke`.
-- Ajustar escenarios para que sigan claramente el patron Given-When-Then.
-- Simplificar backgrounds que contienen acciones equivalentes a un escenario completo.
 - Agregar hooks para capturas de pantalla cuando un escenario falle.
 - Generar y adjuntar reporte HTML de ejecucion.

@@ -7,6 +7,7 @@ Feature: Gestion Exhaustiva del Carrito de Compras en Swag Labs
     Given que existe una sesion activa de usuario estandar
     And el usuario se encuentra en la pagina de inventario
 
+  @smoke
   Scenario: Verificacion detallada de productos agregados al carrito
     Given que el carrito de compras se encuentra vacio
     When agrego los siguientes productos al carrito:
@@ -51,6 +52,7 @@ Feature: Gestion Exhaustiva del Carrito de Compras en Swag Labs
       | subtotal | impuesto | total  |
       | $39.98   | $3.20    | $43.18 |
 
+  @smoke
   Scenario: Flujo completo de compra exitosa
     Given que estoy en el carrito con los siguientes productos:
       | producto              |

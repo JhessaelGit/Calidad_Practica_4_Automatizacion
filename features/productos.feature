@@ -7,6 +7,7 @@ Feature: Verificacion de productos en Swag Labs
     Given que existe una sesion activa de usuario estandar
     And el usuario se encuentra en la pagina de inventario
 
+  @smoke
   Scenario: Verificar lista de productos disponibles
     Then deberia existir la lista de productos
     And deberia existir el producto "Sauce Labs Backpack"
