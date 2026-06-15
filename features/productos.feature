@@ -1,3 +1,4 @@
+@maximize
 Feature: Verificacion de productos en Swag Labs
   Como usuario autenticado
   Quiero visualizar el inventario de productos

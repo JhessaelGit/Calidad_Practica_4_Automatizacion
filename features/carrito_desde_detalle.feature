@@ -1,3 +1,4 @@
+@maximize
 Feature: Agregar producto al carrito desde detalle
   Como usuario autenticado
   Quiero agregar un producto desde su pagina de detalle

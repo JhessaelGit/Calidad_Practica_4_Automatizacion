@@ -1,3 +1,4 @@
+@maximize
 Feature: Filtros de productos en Swag Labs
   Como usuario autenticado
   Quiero ordenar los productos del inventario

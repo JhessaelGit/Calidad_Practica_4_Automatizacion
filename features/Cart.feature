@@ -1,3 +1,4 @@
+@maximize
 Feature: Gestion Exhaustiva del Carrito de Compras en Swag Labs
   Como usuario autenticado de Swag Labs
   Quiero gestionar los productos de mi carrito

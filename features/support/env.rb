@@ -46,14 +46,6 @@ Capybara.default_driver = :selenium_chrome_stable
 Capybara.javascript_driver = :selenium_chrome_stable
 Capybara.default_max_wait_time = 10
 
-After do
-  begin
-    Capybara.current_session.driver.quit
-  rescue Selenium::WebDriver::Error::InvalidSessionIdError
-  rescue StandardError
-  end
-end
-
 module PageObjects
   def login_page
     @login_page ||= LoginPage.new

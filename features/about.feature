@@ -1,3 +1,4 @@
+@maximize
 Feature: Redireccion About en Swag Labs
   Como usuario autenticado
   Quiero abrir la opcion About del menu lateral

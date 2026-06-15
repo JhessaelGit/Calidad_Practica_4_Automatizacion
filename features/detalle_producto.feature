@@ -1,3 +1,4 @@
+@maximize
 Feature: Detalle de producto en Swag Labs
   Como usuario autenticado
   Quiero consultar la pagina de detalle de un producto

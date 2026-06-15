@@ -215,10 +215,18 @@ Los hooks se encuentran en:
 
 ```text
 features/support/hooks.rb
-features/support/env.rb
 ```
 
-Actualmente se utilizan para cerrar la sesion del navegador al finalizar cada escenario y para maximizar la ventana en escenarios marcados con `@maximize`.
+Actualmente se utilizan para:
+
+- Mostrar en consola el nombre del escenario en ejecucion.
+- Maximizar la ventana en escenarios marcados con `@maximize`.
+- Tomar captura de pantalla cuando falla un escenario.
+- Guardar capturas en `reports/screenshots`.
+- Adjuntar la captura al reporte de Cucumber cuando el formato de salida lo permite.
+- Cerrar la sesion del navegador al finalizar cada escenario.
+
+Todas las features estan marcadas con `@maximize`, por lo que el hook de maximizar ventana se ejecuta durante la suite.
 
 ## Buenas practicas aplicadas
 
@@ -231,5 +239,4 @@ Actualmente se utilizan para cerrar la sesion del navegador al finalizar cada es
 
 ## Mejoras pendientes sugeridas
 
-- Agregar hooks para capturas de pantalla cuando un escenario falle.
 - Generar y adjuntar reporte HTML de ejecucion.

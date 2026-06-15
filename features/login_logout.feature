@@ -1,3 +1,4 @@
+@maximize
 Feature: Login y Logout en Swag Labs
   Como usuario de Swag Labs
   Quiero iniciar y cerrar sesion
