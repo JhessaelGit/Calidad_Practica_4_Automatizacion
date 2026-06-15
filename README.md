@@ -66,6 +66,12 @@ features/pages/product_detail_page.rb
 features/pages/common_page.rb
 ```
 
+La documentacion tecnica completa del POM esta en:
+
+```text
+POM.md
+```
+
 ## Page Object Model
 
 El proyecto aplica el patron **Page Object Model (POM)** para separar la logica tecnica de automatizacion de los pasos escritos en Cucumber.
@@ -173,6 +179,30 @@ El archivo generado se encontrara en:
 reports/cucumber_report.html
 ```
 
+Tambien existen perfiles en `cucumber.yml` para ejecutar reportes con comandos mas cortos:
+
+```powershell
+cucumber -p html
+```
+
+Genera:
+
+```text
+reports/cucumber_report.html
+```
+
+Para generar el reporte HTML del Smoke Test:
+
+```powershell
+cucumber -p smoke_html
+```
+
+Genera:
+
+```text
+reports/smoke_report.html
+```
+
 ## Smoke Test
 
 El Smoke Test debe contener los escenarios minimos que validan que la aplicacion esta estable para continuar con pruebas mas amplias.
@@ -209,6 +239,12 @@ Para generar el reporte HTML del Smoke Test:
 cucumber --tags "@smoke" --format html --out reports/smoke_report.html --publish-quiet
 ```
 
+Tambien se puede ejecutar con el perfil:
+
+```powershell
+cucumber -p smoke_html
+```
+
 ## Hooks
 
 Los hooks se encuentran en:
@@ -241,4 +277,8 @@ Todas las features estan marcadas con `@maximize`, por lo que el hook de maximiz
 
 ## Mejoras pendientes sugeridas
 
-- Generar y adjuntar reporte HTML de ejecucion.
+El proyecto ya incluye README, POM, Smoke Test, hooks, reportes HTML y perfiles de ejecucion. Las siguientes mejoras posibles son incrementales:
+
+- Agregar mas escenarios negativos de login.
+- Agregar datos de prueba externos si el volumen de casos aumenta.
+- Separar componentes reutilizables adicionales si crece la interfaz automatizada.

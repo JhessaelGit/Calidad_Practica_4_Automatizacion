@@ -36,6 +36,12 @@ Generar reporte HTML del Smoke Test:
 cucumber --tags "@smoke" --format html --out reports/smoke_report.html --publish-quiet
 ```
 
+Tambien se puede generar usando el perfil configurado:
+
+```powershell
+cucumber -p smoke_html
+```
+
 El reporte generado queda en:
 
 ```text
