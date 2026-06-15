@@ -1,20 +1,19 @@
 Given('que estoy en la pagina de login') do
-  visit 'https://www.saucedemo.com'
+  login_page.visit_page
 end
 
 When('ingreso el username {string}') do |username|
-  find('#user-name').set(username)
+  login_page.enter_username(username)
 end
 
 When('ingreso el password {string}') do |password|
-  find('#password').set(password)
+  login_page.enter_password(password)
 end
 
 When('hago click en Login') do
-  find('#login-button').click
+  login_page.click_login
 end
 
 Then('deberia entrar a la pagina principal') do
-  expect(page).to have_current_path('/inventory.html', url: false)
-  expect(page).to have_content('Products')
+  login_page.validate_login_success
 end

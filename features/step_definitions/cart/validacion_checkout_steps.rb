@@ -1,21 +1,21 @@
-# --- Steps para Validación del Formulario de Checkout ---
+# --- Steps para Validacion del Formulario de Checkout ---
 
 When('hago click en {string} sin llenar campos') do |button_text|
-  step "hago click en \"#{button_text}\""
+  common_page.click_button_link_or_input(button_text)
 end
 
 Then('deberia ver un mensaje de error que dice {string}') do |message|
-  expect(page).to have_selector('[data-test="error"]', text: message)
+  checkout_page.validate_error_message(message)
 end
 
 When('ingreso el nombre {string}') do |name|
-  find('#first-name').set(name)
+  checkout_page.fill_first_name(name)
 end
 
 When('ingreso el apellido {string}') do |last_name|
-  find('#last-name').set(last_name)
+  checkout_page.fill_last_name(last_name)
 end
 
 When('ingreso el codigo postal {string}') do |postal_code|
-  find('#postal-code').set(postal_code)
+  checkout_page.fill_postal_code(postal_code)
 end

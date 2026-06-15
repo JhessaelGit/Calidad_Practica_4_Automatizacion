@@ -1,12 +1,14 @@
+@maximize
 Feature: Detalle de producto en Swag Labs
+  Como usuario autenticado
+  Quiero consultar la pagina de detalle de un producto
+  Para verificar su informacion principal antes de comprarlo
+
+  Background: Usuario autenticado en inventario
+    Given que existe una sesion activa de usuario estandar
+    And el usuario se encuentra en la pagina de inventario
 
   Scenario: Verificar datos exactos del producto Sauce Labs Backpack
-    Given que estoy en la pagina de login
-    When ingreso el username "standard_user"
-    And ingreso el password "secret_sauce"
-    And hago click en Login
-    Then deberia entrar a la pagina principal
-
     When hago click en el producto Sauce Labs Backpack
     Then el nombre del producto deberia ser "Sauce Labs Backpack"
     And la descripcion del producto deberia ser "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection."

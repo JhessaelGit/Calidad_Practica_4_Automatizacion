@@ -1,12 +1,14 @@
+@maximize
 Feature: Agregar producto al carrito desde detalle
+  Como usuario autenticado
+  Quiero agregar un producto desde su pagina de detalle
+  Para confirmar que se muestra correctamente en el carrito
+
+  Background: Usuario autenticado en inventario
+    Given que existe una sesion activa de usuario estandar
+    And el usuario se encuentra en la pagina de inventario
 
   Scenario: Agregar Sauce Labs Backpack al carrito desde la pagina de detalle
-    Given que estoy en la pagina de login
-    When ingreso el username "standard_user"
-    And ingreso el password "secret_sauce"
-    And hago click en Login
-    Then deberia entrar a la pagina principal
-
     When hago click en el producto Sauce Labs Backpack
     And hago click en Add to cart desde detalle
     And ingreso al carrito
