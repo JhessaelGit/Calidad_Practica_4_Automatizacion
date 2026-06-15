@@ -8,6 +8,21 @@ Before '@maximize' do
   page.driver.browser.manage.window.maximize
 end
 
+Around do |scenario, block|
+  start_time = Time.now
+  block.call
+ensure
+  duration = Time.now - start_time
+  execution_dir = File.join(Dir.pwd, 'reports')
+  FileUtils.mkdir_p(execution_dir)
+
+  message = "Escenario: #{scenario.name} | Duracion: #{format('%.2f', duration)} segundos"
+  puts message
+  File.open(File.join(execution_dir, 'execution_times.log'), 'a') do |file|
+    file.puts(message)
+  end
+end
+
 After do |scenario|
   if scenario.failed?
     screenshots_dir = File.join(Dir.pwd, 'reports', 'screenshots')

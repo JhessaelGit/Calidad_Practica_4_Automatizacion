@@ -221,6 +221,8 @@ Actualmente se utilizan para:
 
 - Mostrar en consola el nombre del escenario en ejecucion.
 - Maximizar la ventana en escenarios marcados con `@maximize`.
+- Medir la duracion de cada escenario.
+- Guardar tiempos de ejecucion en `reports/execution_times.log`.
 - Tomar captura de pantalla cuando falla un escenario.
 - Guardar capturas en `reports/screenshots`.
 - Adjuntar la captura al reporte de Cucumber cuando el formato de salida lo permite.
