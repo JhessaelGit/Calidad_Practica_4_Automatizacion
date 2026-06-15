@@ -1,12 +1,11 @@
 Feature: Verificacion de productos en Swag Labs
+  Como usuario autenticado
+  Quiero visualizar el inventario de productos
+  Para confirmar que la tienda muestra productos disponibles para compra
 
-  Scenario: Login y verificacion de lista de productos
-    Given que estoy en la pagina de login
-    When ingreso el username "standard_user"
-    And ingreso el password "secret_sauce"
-    And hago click en Login
-    Then deberia entrar a la pagina principal
-    And deberia existir la lista de productos
+  Scenario: Verificar lista de productos disponibles
+    Given que el usuario esta autenticado en la pagina de inventario
+    Then deberia existir la lista de productos
     And deberia existir el producto "Sauce Labs Backpack"
     And deberia existir el precio del producto
     And deberia existir el boton Add to cart
