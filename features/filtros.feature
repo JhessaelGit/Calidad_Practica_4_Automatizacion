@@ -3,8 +3,11 @@ Feature: Filtros de productos en Swag Labs
   Quiero ordenar los productos del inventario
   Para revisar que la lista respeta el filtro seleccionado
 
+  Background: Usuario autenticado en inventario
+    Given que existe una sesion activa de usuario estandar
+    And el usuario se encuentra en la pagina de inventario
+
   Scenario Outline: Verificar ordenamiento de productos por filtro
-    Given que el usuario esta autenticado en la pagina de inventario
     When selecciono el filtro "<filtro>"
     Then los productos deberian aparecer en este orden "<orden_productos>"
     And los precios deberian aparecer en este orden "<orden_precios>"

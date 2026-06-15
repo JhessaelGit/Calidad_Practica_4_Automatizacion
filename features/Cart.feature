@@ -3,8 +3,9 @@ Feature: Gestion Exhaustiva del Carrito de Compras en Swag Labs
   Quiero gestionar los productos de mi carrito
   Para asegurar que precios, cantidades y totales sean correctos antes de realizar mi pedido
 
-  Background:
-    Given que el usuario esta autenticado en la pagina de inventario
+  Background: Usuario autenticado en inventario
+    Given que existe una sesion activa de usuario estandar
+    And el usuario se encuentra en la pagina de inventario
 
   Scenario: Verificacion detallada de productos agregados al carrito
     Given que el carrito de compras se encuentra vacio

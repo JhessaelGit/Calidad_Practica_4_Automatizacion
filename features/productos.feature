@@ -3,8 +3,11 @@ Feature: Verificacion de productos en Swag Labs
   Quiero visualizar el inventario de productos
   Para confirmar que la tienda muestra productos disponibles para compra
 
+  Background: Usuario autenticado en inventario
+    Given que existe una sesion activa de usuario estandar
+    And el usuario se encuentra en la pagina de inventario
+
   Scenario: Verificar lista de productos disponibles
-    Given que el usuario esta autenticado en la pagina de inventario
     Then deberia existir la lista de productos
     And deberia existir el producto "Sauce Labs Backpack"
     And deberia existir el precio del producto

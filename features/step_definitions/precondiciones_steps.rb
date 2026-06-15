@@ -1,3 +1,11 @@
+Given('que existe una sesion activa de usuario estandar') do
+  login_page.login('standard_user', 'secret_sauce')
+end
+
+Given('el usuario se encuentra en la pagina de inventario') do
+  products_page.validate_inventory_page('Products')
+end
+
 Given('que el usuario esta autenticado en la pagina de inventario') do
   login_page.login('standard_user', 'secret_sauce')
   products_page.validate_inventory_page('Products')
